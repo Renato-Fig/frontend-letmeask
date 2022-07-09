@@ -23,19 +23,15 @@
 }
 
 .component-answer {
-    background-color: #F0EBFF;
-    padding: 24px;
-    width: 75%;
-    border-radius: 0 6px 6px 6px ;
-    margin: 8px 0 0 auto;
-
-    form {
-        background-color: red;
+    .answer-posted {
+        background-color: #F0EBFF;
+        padding: 24px;
         width: 75%;
-        visibility: hidden;
+        border-radius: 0 6px 6px 6px ;
+        margin: 8px 0 0 auto;
+    }
 
-        .admin-answer {
-            display: none;
-        }
+    .answer-input {
+        display: none;
     }
 }

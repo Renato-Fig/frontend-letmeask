@@ -24,7 +24,7 @@ export function Enter() {
                     <h3>Crie sua própria sala</h3>
                     <button id='createRoom'>Criar sala</button>
 
-                    <a href="/user">Voltar</a>
+                    <p><a href="/user">Clique para voltar</a></p>
                 </div>
             </main>
         </div>

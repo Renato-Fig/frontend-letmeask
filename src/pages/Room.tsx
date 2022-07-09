@@ -29,6 +29,9 @@ export function Room() {
                 </form>
                 <ul className='question-list'>
                     <Quote />
+                    <Quote />
+                    <Quote />
+                    <Quote />
                 </ul>
                 <div className="empty-room">
                     <img src={emptyRoomImg} alt="" />

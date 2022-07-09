@@ -1,8 +1,13 @@
 import './quote.scss'
 
 export function Quote() {
-    function showInput() {
-        document.querySelector('.btn-show-input')
+    const showAnswerInput = () => {
+        return (
+            <form action="" className='answer-input'>
+                    <input type="text"/>
+                    <button>Enviar resposta</button>
+                </form>
+        )
     }
 
     return (
@@ -11,12 +16,11 @@ export function Quote() {
             <footer>
                 <span>Renato Figueiredo</span>
             </footer>
-            <div className='component-answer'>Esta é a resposta</div>
-                <button className='btn-'>Fazer comentário</button>
-                <form action="" className='admin-answer'>
-                    <textarea name="answer" ></textarea>
-                    <button>Enviar resposta</button>
-                </form>
+            <div className='component-answer'>
+                <div className='answer-posted'>Esta é a resposta</div>
+                <button>Fazer comentário</button>
+                
+            </div>
         </div>
     )
 }
