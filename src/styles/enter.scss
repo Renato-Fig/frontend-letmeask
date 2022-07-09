@@ -1,0 +1,137 @@
+#page-enter {
+    display: flex;
+    height: 100vh;
+
+    aside {
+        background-color: #835AFD;
+        color: #FFF;
+        
+        height: 100%;
+        width: 50vw;
+        padding: 120px 80px;
+    
+        display: flex;
+        align-items: flex-end;
+
+        h1 {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #F8F8F8;
+        }
+    }
+
+    main {
+        width: 50vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        div {
+            width: 350px;
+            margin: 0 auto;
+            
+            div {
+                margin: 24px 0;
+    
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                p {
+                    font-size: 0.8em;
+                    padding: 0 8px;
+                    color: #A8A8B3;
+                }
+    
+                span {
+                    width: 100%;
+                    height: 1px;
+                    background-color: #A8A8B3;
+                }
+            }
+        }
+        
+        
+        h3 {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            color: #A8A8B3;
+            margin-bottom: 8px;
+        }
+
+        input {
+            height: 50px;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #A8A8B3;
+            box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.1);
+            padding: 12px;
+            margin-bottom: 8px;
+
+            &::placeholder {
+                color: #A8A8B3;
+                font-weight: 300;
+            }
+
+            &:focus {
+                border: 1px solid transparent;
+                outline: 1px solid #835AFD;
+            }
+        }
+
+        button {
+            background-color: #835AFD;
+            color: #FFF;
+            border: 0;
+
+            width: 100%;
+            height: 50px;
+            padding: 0 32px;
+            border-radius: 8px;
+            font-weight: 500;
+        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        
+            &:hover {
+                background-color: #6F4BD8;
+                color: #FEFEFE;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            text-align: center;
+            color: #835AFD;
+            background-color: green;
+            margin-top: 8px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        #createRoom {
+            background-color: #FFF;
+            border: 2px solid #835AFD;
+            color: #835AFD;
+
+            &:hover {
+                background-color: #F0EBFF;
+                border: 2px solid #6F4BD8;
+                color: #6F4BD8;
+            }
+        }
+    }
+}

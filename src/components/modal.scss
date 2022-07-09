@@ -1,0 +1,54 @@
+#component-modal {
+    position: fixed;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+
+    main {
+        background-color: #F8F8F8;
+        border-radius: 8px;
+        padding: 40px 64px;
+
+        h4 {
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 12px 0 32px 0;
+            color: #737380;
+        }
+
+        button {
+            padding: 14px 32px;
+            cursor: pointer;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        #btn-cancel {
+            background-color: #DBDCDD;
+            color: #737380;
+            margin-right: 8px;
+
+            &:hover {
+                background-color: #CECECE;
+            }
+        }
+
+        #btn-confirm-close {
+            background-color:#E73F5D;
+            color: #FEFEFE;
+
+            &:hover {
+                background-color: #D73754;
+            }
+        }
+    }
+}

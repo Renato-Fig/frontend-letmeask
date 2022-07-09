@@ -1,0 +1,41 @@
+.component-quote {
+    background-color: #FFF;
+    box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.1);
+    padding: 24px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    width: 100%;
+
+    p {
+        margin-bottom: 16px;
+        line-height: 1.5;
+    }
+
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+            color: #737380;
+        }
+    }
+}
+
+.component-answer {
+    background-color: #F0EBFF;
+    padding: 24px;
+    width: 75%;
+    border-radius: 0 6px 6px 6px ;
+    margin: 8px 0 0 auto;
+
+    form {
+        background-color: red;
+        width: 75%;
+        visibility: hidden;
+
+        .admin-answer {
+            display: none;
+        }
+    }
+}
