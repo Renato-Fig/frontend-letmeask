@@ -1,3 +1,5 @@
+import { ListRoom } from '../components/ListRoom'
+
 import '../styles/room.scss'
 
 import emptyRoomImg from '../assets/images/empty-questions.svg'
@@ -19,6 +21,7 @@ export function User() {
                 <h5>Olá, Renato Figueiredo!</h5>
                 <div className='list-rooms'>
                     <h2>Minhas salas</h2>
+                    <ListRoom />
                 </div>
 
                 <div className="empty-room">

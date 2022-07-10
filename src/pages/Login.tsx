@@ -24,7 +24,6 @@ export function Login() {
         else { 
             console.log("deu ruim",response.data.failed)
         }
-        
     }
 
     return (

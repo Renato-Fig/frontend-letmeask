@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { Login } from './pages/Login'
 import { Register } from './pages/Register'
-import { Enter } from './pages/Enter'
+import { Home } from './pages/Home'
 import { NewRoom } from './pages/NewRoom'
 import { Room } from './pages/Room'
 import { AdminRoom } from './pages/AdminRoom'
@@ -19,7 +19,7 @@ function App() {
         <Route path="/new-room" element={ <NewRoom /> }/>
         <Route path="/register" element={ <Register /> } />  
         <Route path="/user" element={ <User /> } />  
-        <Route path="/enter" element={ <Enter /> } />  
+        <Route path="/home" element={ <Home /> } />  
       </Routes>
     </BrowserRouter>
   )

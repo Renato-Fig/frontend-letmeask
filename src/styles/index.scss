@@ -16,3 +16,16 @@ body, input, button, textarea {
 button {
   cursor: pointer;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6F4BD8;
+}
+
+::-webkit-scrollbar-track {
+  background: #DDD;
+}

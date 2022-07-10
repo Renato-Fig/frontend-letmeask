@@ -1,7 +1,9 @@
-import '../styles/enter.scss'
+import { MdOutlineLogin } from "react-icons/md";
 
-export function Enter() {
-    document.title = 'Crie ou entre em um sala'
+import '../styles/home.scss'
+
+export function Home() {
+    document.title = 'Entre ou crie uma sala'
 
     return (
         <div id='page-enter'> 
@@ -14,8 +16,9 @@ export function Enter() {
             <main>
                 <div>
                     <h3>Entre como participante</h3>
-                    <input type="text" placeholder="Insira o código da sala"/>
-                    <button id='enterRoom'>Entrar na sala</button>
+                    <input type="text" 
+                    placeholder="Insira o código da sala"/>
+                    <button id='enterRoom'> <span><MdOutlineLogin /></span> Entrar na sala</button>
 
                     <div>
                         <span></span><p>ou</p><span></span>

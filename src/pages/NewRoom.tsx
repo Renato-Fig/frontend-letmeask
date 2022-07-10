@@ -11,9 +11,9 @@ export function NewRoom() {
             </aside>
             <main>
                 <div>
-                    <h3>Entre como participante</h3>
+                    <h3>Crie sua sala</h3>
                     <input type="text" placeholder="Nome da sala"/>
-                    <button id='enterRoom'>Entrar na sala</button>
+                    <button id='enterRoom'>Criar sala</button>
 
                     <p>Quer entrar em uma sala já existente? <a href="/enter">Clique aqui</a></p>
                     

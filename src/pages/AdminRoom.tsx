@@ -12,7 +12,7 @@ export function AdminRoom() {
     return (
         <div id="page-room">
             <header>
-                <a href="/enter"><img src={logoImg} alt="" /></a>
+                <a href="/home"><img src={logoImg} alt="" /></a>
                 <ul>
                     <li><button>Sala #000000</button></li>
                     <li><button>Encerrar sala</button></li>
