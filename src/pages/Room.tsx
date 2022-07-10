@@ -23,7 +23,7 @@ export function Room() {
                     <h1>Sala ReactJs</h1>
                     <span>Criado por Renato, em 08/07/2022</span>    
                 </div>
-                <form action="">
+                <form action="" className='input-user'>
                     <textarea placeholder='O que você quer perguntar?'></textarea>
                     <button>Enviar pergunta</button>
                 </form>
