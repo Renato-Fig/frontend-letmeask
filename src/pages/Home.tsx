@@ -9,21 +9,7 @@ export function Home() {
     document.title = 'Entre ou crie uma sala'
 
     const {user, isAuthenticated } = useContext(AuthContext)
-    //console.log("email",user?.user_email)
     const { 'letmeask.token': token } = parseCookies()
-
-    useEffect(() => {
-        if (!token) {
-            window.location.href = '/'
-        }
-    }, [])
-
-    useEffect(() => {
-        if (!token) {
-            window.location.href = '/';
-        }
-    }, [token, isAuthenticated]);
-
 
     return (
         <div id='page-enter'> 
@@ -47,11 +33,7 @@ export function Home() {
                     <h3>Crie sua própria sala</h3>
                     <button id='createRoom'>Criar sala</button>
 
-                    <p><a href="/user">Clique para voltar</a></p>
-
-                    
-                    <p>email = { user?.user_email}</p>
-                    <p>id = {user?.user_id }</p>
+                    <p><a href="/user">Clique para ir para página de usuário</a></p>
                      
                 </div>
             </main>

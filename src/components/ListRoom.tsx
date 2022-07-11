@@ -5,7 +5,7 @@ export function ListRoom() {
         <div className='component-list-room'>
             <span>Room Title</span>
             <span>ADMIN</span>
-            <span>Room Title</span>
+            <span>STATUS</span>
             <span><a href="/room">Entrar</a></span>
         </div>
     )

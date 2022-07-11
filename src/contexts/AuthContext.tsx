@@ -11,7 +11,9 @@ type User = {
 }
 
 type SignUpData = {
-  
+  user_email: string;
+  user_password: string;
+  user_name: string;
 }
 
 type SignInData = {
@@ -22,7 +24,8 @@ type SignInData = {
 type AuthContextType = {
   isAuthenticated: boolean;
   user: User | null;
-  signIn: (data: SignInData) => Promise<void>
+  signIn: (data: SignInData) => Promise<void>;
+  signUp: (data: SignUpData) => Promise<void>
 }
 
 
@@ -51,6 +54,18 @@ export function AuthProvider({ children }: any) {
   async function index() {
     const response = await api.get('/user_unique');
     return response.data;
+  }
+
+  async function signUp(data: SignUpData) {
+    const { user_email, user_name, user_password } = data;
+
+    const response = await api.post('/user', {
+      user_email,
+      user_name,
+      user_password
+
+    });
+    return response.data
   }
 
   async function signIn(data: SignInData) {
@@ -82,7 +97,7 @@ export function AuthProvider({ children }: any) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, signIn }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, signIn, signUp }}>
       {children}
     </AuthContext.Provider>
   )
