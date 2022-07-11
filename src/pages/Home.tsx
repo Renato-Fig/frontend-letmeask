@@ -1,9 +1,29 @@
+import { parseCookies } from "nookies";
+import { useContext, useEffect } from "react";
 import { MdOutlineLogin } from "react-icons/md";
+import { AuthContext } from "../contexts/AuthContext";
 
 import '../styles/home.scss'
 
 export function Home() {
     document.title = 'Entre ou crie uma sala'
+
+    const {user, isAuthenticated } = useContext(AuthContext)
+    //console.log("email",user?.user_email)
+    const { 'letmeask.token': token } = parseCookies()
+
+    useEffect(() => {
+        if (!token) {
+            window.location.href = '/'
+        }
+    }, [])
+
+    useEffect(() => {
+        if (!token) {
+            window.location.href = '/';
+        }
+    }, [token, isAuthenticated]);
+
 
     return (
         <div id='page-enter'> 
@@ -28,6 +48,11 @@ export function Home() {
                     <button id='createRoom'>Criar sala</button>
 
                     <p><a href="/user">Clique para voltar</a></p>
+
+                    
+                    <p>email = { user?.user_email}</p>
+                    <p>id = {user?.user_id }</p>
+                     
                 </div>
             </main>
         </div>
