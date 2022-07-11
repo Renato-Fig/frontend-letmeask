@@ -5,15 +5,9 @@ import { AuthContext } from '../contexts/AuthContext';
 import api from '../services/api';
 import '../styles/newroom.scss'
 
-type RoomParams = {
-  id: string;
-}
-
 export function NewRoom() {
     const [newRoom, setNewRoom] = useState('');
     const navigate = useNavigate();
-    const params = useParams<RoomParams>();
-    const roomId = params.id;
 
     const { user, isAuthenticated } = useContext(AuthContext)
     const { 'letmeask.token': token } = parseCookies()
@@ -21,9 +15,6 @@ export function NewRoom() {
 
     useEffect(() => {
         if (!token) {
-            window.location.href = '/'
-        }
-        if (!user) {
             window.location.href = '/'
         }
     }, [])
