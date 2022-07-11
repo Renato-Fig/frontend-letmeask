@@ -10,6 +10,10 @@ type User = {
   user_password?: string;
 }
 
+type SignUpData = {
+  
+}
+
 type SignInData = {
   user_email: string;
   user_password: string;
