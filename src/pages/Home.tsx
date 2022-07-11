@@ -8,13 +8,14 @@ import api from "../services/api";
 import '../styles/home.scss'
 
 export function Home() {
-    const navigate = useNavigate();
     document.title = 'Entre ou crie uma sala'
+    
+    const navigate = useNavigate();
+    const [roomCode, setRoomCode] = useState('')
 
     const { user, isAuthenticated } = useContext(AuthContext)
     const { 'letmeask.token': token } = parseCookies()
 
-    const [roomCode, setRoomCode] = useState('')
 
     useEffect(() => {
         if (!token) {
