@@ -35,10 +35,10 @@ export function AuthProvider({ children }: any) {
 
     if (token) {
       index().then((response) => {
-        console.log("response",response);
+        console.log("response:",response);
         setUser(response);
       }).catch((error) => {
-        console.log("errrrou",error);
+        console.log("errrrou:",error);
       })
     }
   }, []);
@@ -56,7 +56,7 @@ export function AuthProvider({ children }: any) {
       user_email,
       user_password,
     });
-    const {token} = response.data
+    const {token, user} = response.data
 
     if(!token){
       alert(response.data.failed)

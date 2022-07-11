@@ -8,8 +8,7 @@ import '../styles/home.scss'
 export function Home() {
     document.title = 'Entre ou crie uma sala'
 
-    const {user, isAuthenticated } = useContext(AuthContext)
-    //console.log("email",user?.user_email)
+    const { user, isAuthenticated } = useContext(AuthContext)
     const { 'letmeask.token': token } = parseCookies()
 
     useEffect(() => {
@@ -48,10 +47,6 @@ export function Home() {
                     <button id='createRoom'>Criar sala</button>
 
                     <p><a href="/user">Clique para voltar</a></p>
-
-                    
-                    <p>email = { user?.user_email}</p>
-                    <p>id = {user?.user_id }</p>
                      
                 </div>
             </main>
