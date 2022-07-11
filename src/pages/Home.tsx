@@ -28,6 +28,14 @@ export function Home() {
         }
     }, [token, isAuthenticated]);
 
+    async function handleCreateRoom() {
+        if(!user) {
+            navigate('../')
+        }
+
+        navigate('../new-room')
+    }
+
     async function handleEnterRoom(event: FormEvent) {
         event.preventDefault();
 
@@ -38,22 +46,24 @@ export function Home() {
         const response = await api.post('/rooms', {
             access_code: roomCode
         })
+        console.log(response)
 
-        if(response.data.failed === " ") {
+        if(response.data.failed === "Oops, room does not exist.") {
             alert(response.data.failed)
             return 
         }
-
+        if(response.data.failed === "Ops, user is the room creator!") {
+            alert(response.data.failed)
+            return 
+        }
         if (response.data.failed === "User already belongs to room!") {
             navigate(`../room/${roomCode}`)
             return 
         }
-
         if(response.data.message) {
             navigate(`../room/${roomCode}`)
             return 
         }
-        return
     }
 
 
@@ -88,7 +98,7 @@ export function Home() {
                     </div>
 
                     <h3>Crie sua própria sala</h3>
-                    <button id='createRoom'>Criar sala</button>
+                    <button onClick={handleCreateRoom} id='createRoom'>Criar sala</button>
 
                     <p><a href="/user">Clique para voltar</a></p>
                      
