@@ -1,15 +1,20 @@
 import { parseCookies } from "nookies";
-import { useContext, useEffect } from "react";
+import { FormEvent, useContext, useEffect, useState } from "react";
 import { MdOutlineLogin } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import api from "../services/api";
 
 import '../styles/home.scss'
 
 export function Home() {
+    const navigate = useNavigate();
     document.title = 'Entre ou crie uma sala'
 
     const { user, isAuthenticated } = useContext(AuthContext)
     const { 'letmeask.token': token } = parseCookies()
+
+    const [roomCode, setRoomCode] = useState('')
 
     useEffect(() => {
         if (!token) {
@@ -23,6 +28,34 @@ export function Home() {
         }
     }, [token, isAuthenticated]);
 
+    async function handleEnterRoom(event: FormEvent) {
+        event.preventDefault();
+
+        if (roomCode.trim() === '') {
+            return
+        }
+
+        const response = await api.post('/rooms', {
+            access_code: roomCode
+        })
+
+        if(response.data.failed === " ") {
+            alert(response.data.failed)
+            return 
+        }
+
+        if (response.data.failed === "User already belongs to room!") {
+            navigate(`../room/${roomCode}`)
+            return 
+        }
+
+        if(response.data.message) {
+            navigate(`../room/${roomCode}`)
+            return 
+        }
+        return
+    }
+
 
     return (
         <div id='page-enter'> 
@@ -35,9 +68,20 @@ export function Home() {
             <main>
                 <div>
                     <h3>Entre como participante</h3>
-                    <input type="text" 
-                    placeholder="Insira o código da sala"/>
-                    <button id='enterRoom'> <span><MdOutlineLogin /></span> Entrar na sala</button>
+                    <form onSubmit={handleEnterRoom}>
+
+                        <input 
+                            type="text" 
+                            placeholder="Insira o código da sala"
+                            onChange={event => setRoomCode(event.target.value)}
+                            value={roomCode}
+                        />
+
+                        <button type="submit" id='enterRoom'> 
+                            <span><MdOutlineLogin /></span> 
+                            Entrar na sala
+                        </button>
+                    </form>
 
                     <div>
                         <span></span><p>ou</p><span></span>

@@ -62,19 +62,16 @@ export function AuthProvider({ children }: any) {
       alert(response.data.failed)
     }
     if (token) { 
-      setToken(token)
-      setUser(user)// parsed email and id 
-      navigate('/home')
-    }
-  }
-
-  function setToken(token: any) {
-    setCookie(undefined, 'letmeask.token', token, {
+         setCookie(undefined, 'letmeask.token', token, {
       maxAge: 60 * 60 * 24, //1 dia em segundos
     });
 
+    api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     //atualizando o token quando o usuário se autentica
-   api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    
+    setUser(user)// parsed email and id 
+    navigate('/home')
+    }
   }
 
   return (
