@@ -18,12 +18,12 @@ export function Login() {
     async function handleLogin(data: SignInData) {
         await signIn(data);
     }
-
+/* 
     useEffect(() => {
         if (token) {
             window.location.href = '/home'
         }
-    }, [])
+    }, []) */
 
     useEffect(() => {
         if (token) {

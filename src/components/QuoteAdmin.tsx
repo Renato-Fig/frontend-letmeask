@@ -9,7 +9,9 @@ export function QuoteAdmin() {
 
     return (
         <div className='component-quote'>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia laboriosam debitis tempora officiis facere maiores eos consequuntur neque dolore sunt ratione animi quod accusantium omnis reiciendis eius, voluptatibus necessitatibus. Consectetur?</p>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia laboriosam debitis tempora officiis facere maiores eos consequuntur neque dolore sunt ratione animi quod accusantium omnis reiciendis eius, voluptatibus necessitatibus. Consectetur?
+            </p>
             <footer>
                 <span>Renato Figueiredo</span>
                 <div>
