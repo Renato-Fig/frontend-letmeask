@@ -1,11 +1,32 @@
-import { FormEvent, useState } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { parseCookies } from 'nookies';
+import { FormEvent, useContext, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom'
+import { AuthContext } from '../contexts/AuthContext';
 import api from '../services/api';
 import '../styles/newroom.scss'
 
+type RoomParams = {
+  id: string;
+}
+
 export function NewRoom() {
-    const navigate = useNavigate()
     const [newRoom, setNewRoom] = useState('');
+    const navigate = useNavigate();
+    const params = useParams<RoomParams>();
+    const roomId = params.id;
+
+    const { user, isAuthenticated } = useContext(AuthContext)
+    const { 'letmeask.token': token } = parseCookies()
+
+
+    useEffect(() => {
+        if (!token) {
+            window.location.href = '/'
+        }
+        if (!user) {
+            window.location.href = '/'
+        }
+    }, [])
 
     async function handleCreateRoom(event: FormEvent) {
         event.preventDefault();
