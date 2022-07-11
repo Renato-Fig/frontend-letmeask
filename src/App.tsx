@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import { Login } from './pages/Login'
@@ -16,9 +15,9 @@ function App() {
       <AuthProvider >
         <Routes>
           <Route path="/" element={ <Login /> }/>
-          <Route path="/room" element={ <Room /> }/>
-          <Route path="/room/admin" element={ <AdminRoom /> }/>
           <Route path="/new-room" element={ <NewRoom /> }/>
+          <Route path="/room/:room_id" element={ <Room /> }/>
+          <Route path="/room/admin/:room_id" element={ <AdminRoom /> }/>
           <Route path="/register" element={ <Register /> } />  
           <Route path="/user" element={ <User /> } />  
           <Route path="/home" element={ <Home /> } />  
