@@ -21,10 +21,18 @@ type SignInData = {
   user_password: string;
 }
 
+type SignUpData = {
+  // variavies que precisa pra criar conta
+}
+
 type AuthContextType = {
   isAuthenticated: boolean;
   user: User | null;
+<<<<<<< HEAD
   signIn: (data: SignInData) => Promise<void>;
+=======
+  signIn: (data: SignInData) => Promise<void>
+>>>>>>> 7ef26e71a754b7b4cf7d47f8e394ad1fb5b07f06
   signUp: (data: SignUpData) => Promise<void>
 }
 
@@ -42,10 +50,10 @@ export function AuthProvider({ children }: any) {
 
     if (token) {
       index().then((response) => {
-        console.log("response",response);
+        console.log("response:",response);
         setUser(response);
       }).catch((error) => {
-        console.log("errrrou",error);
+        console.log("errrrou:",error);
       })
     }
   }, []);
@@ -75,26 +83,41 @@ export function AuthProvider({ children }: any) {
       user_email,
       user_password,
     });
-    const {token} = response.data
+    const {token, user} = response.data
 
     if(!token){
       alert(response.data.failed)
     }
     if (token) { 
-      setToken(token)
-      setUser(user)// parsed email and id 
-      navigate('/home')
-    }
-  }
-
-  function setToken(token: any) {
-    setCookie(undefined, 'letmeask.token', token, {
+         setCookie(undefined, 'letmeask.token', token, {
       maxAge: 60 * 60 * 24, //1 dia em segundos
     });
 
+    api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     //atualizando o token quando o usuário se autentica
-   api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    
+    setUser(user)// parsed email and id 
+    navigate('/home')
+    }
   }
+
+  async function signUp(data: SignUpData) {
+    //const { user_email, user_password } = data; // descontruir data
+
+    /* const response = await api.post('/auth', {
+      user_email,
+      user_password,
+    }); */
+    // fazer requisicao
+
+    // verificar se retornou o esperado
+    //const {user} = response.data
+
+    //navigate('../')
+    
+  }
+
+  
 
   return (
     <AuthContext.Provider value={{ user, isAuthenticated, signIn, signUp }}>
