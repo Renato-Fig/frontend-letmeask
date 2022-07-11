@@ -2,7 +2,6 @@ import { parseCookies } from 'nookies';
 import { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../contexts/AuthContext';
-import api from '../services/api';
 import '../styles/login.scss';
 
 type SignInData = {
